@@ -1,0 +1,591 @@
+.panel {
+    /* width: 300px; */
+    height: 150px;
+    /* 注意:要设置边框背景图片,就一定要有边框 */
+    border: 20px solid red;
+    border-width: 50px 38px 20px 128px;
+    /* background-color: pink; */
+    /* 内减盒子 */
+    box-sizing: border-box;
+    /* 父相 */
+    position: relative;
+
+    /* 边框背景图片 */
+    /* border-image-source: url('./image/border.png');
+    border-image-slice: 50 38 20 128;
+    border-image-width: 50px 38px 20px 128px;
+    border-image-repeat: stretch; */
+
+    /* 边框背景图片连写 */
+    border-image: url('../image/border.png') 50 38 20 128/50px 38px 20px 128px stretch;
+}
+
+.inner {
+    /* 子绝 */
+    position: absolute;
+    top: -50px;
+    right: -38px;
+    bottom: -20px;
+    left: -128px;
+    padding: 20px 30px;
+}
+
+/* 项目整体背景 */
+body {
+    background: url('../image/bg.jpg') no-repeat;
+    background-size: cover;
+}
+
+.container {
+    /* 我希望高度是内容撑开的,但是我又希望你有一个最小的高度 */
+    min-height: 700px;
+    /* 设置一个版心的最大宽度 */
+    max-width: 1920px;
+    /* 设置一个版心最小的宽度 */
+    min-width: 1350px;
+
+    /* 版心居中 */
+    margin: 0 auto;
+
+    /* 设置背景图 */
+    background: url('../image/logo.png') no-repeat;
+    background-size: contain;
+
+    /* 伸缩布局 */
+    display: flex;
+
+    padding: 88px 20px 20px 20px;
+}
+
+/* 1.第一列 */
+.column:nth-child(1) {
+    flex: 3;
+}
+
+/* 1.1 数据概览 */
+.overview {
+    height: 105px;
+}
+
+.overview .item {
+    float: left;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+}
+
+.overview .item p {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.overview .item span {
+    color: #4c9bfd;
+}
+
+.overview .item:nth-child(1) i {
+    color: #006cff;
+}
+
+.overview .item:nth-child(2) i {
+    color: #6acca3;
+}
+
+.overview .item:nth-child(3) i {
+    color: #6acca3;
+}
+
+.overview .item:nth-child(4) i {
+    color: #ed3f35;
+}
+
+/* 1.2 故障设备监控 */
+.monitor {
+    height: 475px;
+    margin-top: 20px;
+}
+
+/* tab栏切换 页签 */
+.monitor .tabs {
+    height: 24px;
+}
+
+.monitor .tabs a {
+    font-size: 18px;
+    color: #1950c4;
+}
+
+.monitor .tabs a.active {
+    color: white;
+}
+
+.monitor .tabs a:nth-child(1) {
+    border-right: 2px solid #00f2f1;
+    padding-right: 26px;
+    margin-right: 26px;
+}
+
+/* tab栏切换 页面  头部*/
+.monitor .content .head {
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 如果想要这个盒子左右占满 */
+    margin-left: -30px;
+    margin-right: -30px;
+
+    margin-top: 15px;
+    padding-left: 30px;
+    line-height: 38px;
+}
+
+.monitor .content .head span {
+    color: #68d8fe;
+    width: 25%;
+    float: left;
+}
+.monitor .content .head span:nth-child(2) {
+    width: 50%;
+}
+
+/* tab栏切换 页面  轮播图 */
+.monitor .content .carousel {
+    height: 350px;
+    /* background-color: pink; */
+
+    margin-left: -30px;
+    margin-right: -30px;
+
+    /* 超出隐藏 */
+    overflow: hidden;
+
+    /* 父相 */
+    position: relative;
+}
+.monitor .content .carousel ul {
+    width: 100%;
+    /* 子绝 */
+    position: absolute;
+    left: 0px;
+    top:0px;    
+}
+.monitor .content .carousel li {
+    height: 35px;
+    line-height: 35px;
+    color:#5696e5;
+
+    padding-left: 30px;
+}
+.monitor .content .carousel li:hover {
+    background-color: green;
+    color:white;
+}
+.monitor .content .carousel li span {
+    float: left;
+    width: 25%;
+}
+.monitor .content .carousel li span:nth-child(2){
+    width: 50%;
+    /* 超出的文本显示省略号 */
+    /* 1.禁止换行 */
+    white-space: nowrap;
+    /* 2.超出隐藏 */
+    overflow: hidden;
+    /* 3.设置隐藏的部分为省略号 */
+    text-overflow: ellipsis;
+}
+
+
+/* 1.3 点位分布 */
+.point {
+    height: 335px;
+    margin-top: 20px;
+}
+.point h3 {
+    color:white;
+    font-size: 18px;
+    font-weight: normal;
+}
+.point .echarts {
+    height: 240px;
+    /* background-color: pink; */
+    margin-top: 15px;
+}
+.point .echarts .pie {
+    float: left;
+    width: 65%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.point .echarts .data {
+    float: left;
+    width: 35%;
+    height: 100%;
+    background: url('../image/rect.png');
+    background-size: cover;
+}
+.point .echarts .data .item {
+    height: 50%;
+    text-align: center;
+
+    padding-top: 35px;
+}
+.point .echarts .data .item p {
+    color:white;
+    font-size: 22px;
+    font-weight: bold;
+}
+.point .echarts .data .item span {
+    color:#4c9bfd;
+}
+
+/* 2.第二列 */
+.column:nth-child(2) {
+    flex: 4;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* 2.1 设备数据统计 */
+.map {
+    height: 600px;
+}
+
+.map h3 {
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    color: white;
+    font-weight: normal;
+}
+
+.map h3 span {
+    color: #68d8fe;
+    margin-right: 5px;
+}
+
+.map .echarts {
+    height: 550px;
+    background: rgba(255, 255, 255, 0.1);
+}
+.map .echarts .geo {
+    height: 100%;
+}
+
+/* 2.2 全国用户总量统计 */
+.user {
+    height: 335px;
+    margin-top: 20px;
+}
+.user h3 {
+    color:white;
+    font-size: 18px;
+    font-weight: normal;
+}
+.user .echarts {
+    height: 240px;
+    /* background-color: pink; */
+    margin-top: 15px;
+}
+.user .echarts .bar {
+    float: left;
+    width: 70%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.user .echarts .data {
+    float: left;
+    width: 30%;
+    height: 100%;
+    background: url('../image/rect.png');
+    background-size: cover;
+}
+.user .echarts .data .item {
+    height: 50%;
+    text-align: center;
+
+    padding-top: 35px;
+}
+.user .echarts .data .item p {
+    color:white;
+    font-size: 22px;
+    font-weight: bold;
+}
+.user .echarts .data .item span {
+    color:#4c9bfd;
+}
+
+
+/* 3.第三列 */
+.column:nth-child(3) {
+    flex: 3;
+}
+
+/* 3.1 订单量 */
+.order {
+    height: 142px;
+}
+.order .head {
+    height: 26px;
+    line-height: 26px;
+}
+.order .head a {
+    float: left;
+    color:#1950c4;
+    font-size: 14px;
+}
+.order .head a.active {
+    color:white;
+}
+.order .head span {
+    float: left;
+    width: 2px;
+    height: 18px;
+    background-color: #00f2f1;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 4px;
+}
+.order .data {
+    height: 80px;
+    margin-top: 10px;
+}
+.order .data .item {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.order .data .item p {
+    color:white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.order .data .item span {
+    color:#4c9bfd;
+}
+
+
+/* 3.2 销售额统计 */
+.sales {
+    height: 244px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.sales .head {
+    height: 24px;
+}
+.sales .head h3 {
+    font-size: 18px;
+    font-weight: normal;
+    color:white;
+    border-right: 2px solid #00f2f1;
+    padding-right: 15px;
+    display: inline;
+}
+.sales .head a {
+    font-size: 14px;
+    color:#0bace6;
+    padding:5px;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+.sales .head a.active {
+    color:white;
+    background-color: #4c9bfd;
+}
+.sales .echarts {
+    height: 170px;
+    margin-top: 10px;
+}
+.sales .echarts .line {
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* 3.3 */
+/* 左边的 渠道分布*/
+.channel {
+    height: 228px;
+    width: 48%;
+}
+.channel h3 {
+    color:white;
+    font-size: 16px;
+    font-weight: normal;
+}
+.channel .data {
+    height: 160px;
+    margin-top: 10px;
+}
+.channel .data .item {
+    float: left;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+.channel .data .item p {
+    color:white;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+.channel .data .item p b {
+    font-size: 24px;
+    margin-right: 2px;
+}
+.channel .data .item span {
+    color:#4c9bfd;
+}
+
+
+/* 右边的 一季度销售进度*/
+.quarter {
+    height: 228px;
+    width: 48%;
+}
+.quarter h3 {
+    font-size: 16px;
+    font-weight: normal;
+    color:white;
+}
+.quarter .echarts {
+    height: 90px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 父相 */
+    position: relative;
+}
+.quarter .echarts .loop {
+    height: 100%;
+}
+.quarter .echarts .show {
+    color:white;
+    /* 子绝 */
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+.quarter .echarts .show b {
+    font-size: 16px;
+    margin-right: 2px;
+}
+.quarter .data {
+    height: 65px;
+    margin-top: 5px;
+}
+.quarter .data .item {
+    float: left;
+    width: 50%;
+    padding-top: 10px;
+}
+.quarter .data .item p {
+    color:white;
+    font-size: 14px;
+    margin-bottom: 5px;
+    /* margin-top: 10px; */
+}
+.quarter .data .item span {
+    color:#4c9bfd;
+}
+
+
+
+/* 3.4 全国热榜 */
+.hot {
+    height: 280px;
+    margin-top: 20px;
+}
+/* 左边的 全国热榜 */
+.hot .all {
+    width: 30%;
+    height: 100%;
+}
+.hot .all h3 {
+    color:white;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.hot .all .data {
+    height: 200px;
+    padding-top: 15px;
+}
+.hot .all .data p {
+    height: 33%;
+}
+.hot .all .data p i {
+    font-size: 35px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+.hot .all .data p  span {
+    color:#4c9bfd;
+}
+
+
+/* 右边的 各省热榜 */
+.hot .province {
+    width: 70%;
+    height: 100%;
+    padding-left: 10px;
+}
+.hot .province h3 {
+    margin-bottom: 20px;
+}
+.hot .province h3 b {
+    color:white;
+    font-size: 16px;
+    float: left;
+}
+.hot .province h3 i {
+    float: right;
+    color:#087faf;
+}
+.hot .province .data {
+    height: 200px;
+}
+.hot .province .data ul {
+    width: 50%;
+}
+.hot .province .data ul li {
+    height: 35px;
+    line-height: 35px;
+}
+.hot .province .data ul:nth-child(1) li.active {
+   color:#a3c6f2;
+   background-color: rgba(255, 255, 255, 0.1); 
+}
+.hot .province .data ul:nth-child(1) li {
+    color:#4995f4;
+}
+.hot .province .data ul:nth-child(2) {
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding-left: 10px;
+}
+.hot .province .data ul:nth-child(2) li {
+    color:#3ab6c3;
+}
+
+.hot .province .data ul li span {
+    float: left;
+    width: 50%;
+}
+.hot .province .data ul li b {
+    float: left;
+    width: 35%;
+}
+.hot .province .data ul li i {
+    float: left;
+    width: 15%;
+    margin-top: 11px;
+}
+
+
+
+.hot .province .icon-up {
+    color:#dc3c33;
+}
+.hot .province .icon-down {
+    color:#36be90;
+}
